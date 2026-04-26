@@ -1,5 +1,6 @@
+import { motion } from 'framer-motion'
 import { MapPin, Users, Award, Building2, TrendingUp, Heart } from 'lucide-react'
-import ScrollReveal from './ScrollReveal'
+import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
 
 const stats = [
   { value: '45+', label: 'Years in Business', icon: Award },
@@ -9,114 +10,101 @@ const stats = [
 ]
 
 const values = [
-  {
-    icon: TrendingUp,
-    title: 'Industry Leadership',
-    text: 'A leader in the supply of industrial and specialty gas, cutting, and welding equipment across South Africa.',
-  },
-  {
-    icon: Users,
-    title: 'Expert Staff',
-    text: 'Our team is expertly trained to help you find the right solution. We provide the best service, every time.',
-  },
-  {
-    icon: Heart,
-    title: 'Customer First',
-    text: 'We build lasting relationships with our customers \u2014 from solo welders to large-scale manufacturing operations.',
-  },
+  { icon: TrendingUp, title: 'Industry Leader', text: 'A leader in industrial gas, cutting, and welding equipment across South Africa.' },
+  { icon: Users, title: 'Expert Team', text: 'Trained staff help you find the right solution. Best service, every time.' },
+  { icon: Heart, title: 'Customer First', text: 'Lasting relationships from solo welders to large-scale manufacturing.' },
 ]
 
 export default function About() {
   return (
-    <section id="about" className="relative py-20 sm:py-24 lg:py-32 bg-white overflow-hidden">
+    <section id="about" className="relative py-20 sm:py-28 lg:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Stats bar */}
-        <ScrollReveal>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-16 sm:mb-20">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-gray-50 border border-gray-100 rounded-2xl p-5 sm:p-6 text-center hover:border-navy-200 transition-colors"
-              >
-                <stat.icon size={18} className="text-navy-900 mx-auto mb-2 sm:mb-3 sm:size-5" />
-                <div className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-950 mb-0.5 sm:mb-1">
+        <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-16 sm:mb-20" staggerDelay={0.1}>
+          {stats.map((stat) => (
+            <StaggerItem key={stat.label}>
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-5 sm:p-6 text-center hover:border-navy-200 hover:shadow-md transition-all duration-300">
+                <stat.icon size={20} className="text-navy-900 mx-auto mb-3" />
+                <div className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-navy-950 mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-500 font-medium">{stat.label}</div>
               </div>
-            ))}
-          </div>
-        </ScrollReveal>
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-        {/* About content */}
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
-          {/* Left - image + overlay */}
+        {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-14 items-center">
+          {/* Image */}
           <ScrollReveal>
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="/product-welder.jpg"
+                  src="/welder-action.jpg"
                   alt="Welding in action"
-                  className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+                  className="w-full h-[300px] sm:h-[400px] lg:h-[520px] object-cover"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
-                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                  <div className="bg-white/95 backdrop-blur-sm rounded-xl p-3 sm:p-4 shadow-lg">
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <Award size={16} className="text-emerald-700 sm:size-5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
+                {/* Floating badge */}
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.5 }}
+                  className="absolute bottom-5 left-5 right-5"
+                >
+                  <div className="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl">
+                    <div className="flex items-center gap-3">
+                      <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <Award size={22} className="text-emerald-700" />
                       </div>
                       <div>
-                        <div className="font-display font-bold text-navy-950 text-sm sm:text-base">45+ Years</div>
-                        <div className="text-[10px] sm:text-xs text-gray-500">Serving Gauteng since 1979</div>
+                        <div className="font-display font-black text-navy-950 text-lg">45+ Years</div>
+                        <div className="text-xs text-gray-500">Serving Gauteng since 1979</div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-              {/* Decorative accent */}
-              <div className="absolute -z-10 -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 w-full h-full bg-navy-100 rounded-2xl" />
+              <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-navy-100 rounded-3xl" />
             </div>
           </ScrollReveal>
 
-          {/* Right - text */}
+          {/* Text */}
           <ScrollReveal delay={1}>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy-100 rounded-full mb-4">
-                <Award size={14} className="text-navy-900" />
-                <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Est. 1979</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-navy-50 border border-navy-100 rounded-full mb-5">
+                <Award size={15} className="text-navy-900" />
+                <span className="text-xs font-bold text-navy-900 uppercase tracking-widest">Est. 1979</span>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight mb-4 sm:mb-6">
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-6">
                 Trusted by Gauteng's{' '}
                 <span className="gradient-text">Welding Industry</span>
               </h2>
-              <div className="space-y-3 sm:space-y-4 text-gray-600 leading-relaxed mb-6 sm:mb-8">
-                <p className="text-sm sm:text-base">
-                  Since 1979, Preweld has been the go-to source for gas, cutting, and welding 
-                  supplies in Pretoria and the greater Gauteng region. Four strategically positioned 
+              <div className="space-y-4 text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
+                <p>
+                  Since 1979, Preweld has been the go-to source for gas, cutting, and welding
+                  supplies in Pretoria and the greater Gauteng region. Four strategically positioned
                   branches serving the province's industrial and commercial hubs.
                 </p>
-                <p className="text-sm sm:text-base">
-                  From welding machines and consumables to specialty gases and full PPE — overalls, 
-                  dust masks, safety specs, respirators, gloves, safety shoes, and boots. 
+                <p>
+                  From welding machines and consumables to specialty gases and full PPE — overalls,
+                  dust masks, safety specs, respirators, gloves, safety shoes, and boots.
                   You're covered from top to toe.
                 </p>
               </div>
 
-              {/* Values as horizontal cards instead of stacked */}
+              {/* Values */}
               <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 {values.map((value) => (
-                  <div
-                    key={value.title}
-                    className="p-3 sm:p-4 bg-gray-50 border border-gray-100 rounded-xl hover:border-navy-200 transition-colors text-center"
-                  >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-navy-50 rounded-lg flex items-center justify-center mx-auto mb-1.5 sm:mb-2">
-                      <value.icon size={14} className="text-navy-900 sm:size-[18px]" />
+                  <div key={value.title} className="p-3 sm:p-4 bg-gray-50 border border-gray-100 rounded-xl hover:border-navy-200 hover:shadow-sm transition-all duration-300 text-center">
+                    <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center mx-auto mb-2">
+                      <value.icon size={18} className="text-navy-900" />
                     </div>
-                    <h3 className="font-display text-xs sm:text-sm font-bold text-navy-950 mb-0.5 sm:mb-1">
-                      {value.title}
-                    </h3>
-                    <p className="text-[10px] sm:text-xs text-gray-500 leading-relaxed line-clamp-3">{value.text}</p>
+                    <h3 className="font-display text-xs sm:text-sm font-bold text-navy-950 mb-1">{value.title}</h3>
+                    <p className="text-[10px] sm:text-xs text-gray-500 leading-relaxed line-clamp-2">{value.text}</p>
                   </div>
                 ))}
               </div>

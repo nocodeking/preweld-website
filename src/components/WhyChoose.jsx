@@ -1,5 +1,5 @@
 import { Clock, Truck, Wrench, Users, ShieldCheck, BadgeCheck } from 'lucide-react'
-import ScrollReveal from './ScrollReveal'
+import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
 
 const reasons = [
   {
@@ -20,7 +20,7 @@ const reasons = [
   {
     icon: Users,
     title: 'Staff Who Actually Weld',
-    text: 'Our team isn\'t just salespeople \u2014 they understand your application and recommend the right solution the first time.',
+    text: "Our team isn't just salespeople — they understand your application and recommend the right solution the first time.",
   },
   {
     icon: ShieldCheck,
@@ -30,47 +30,45 @@ const reasons = [
   {
     icon: BadgeCheck,
     title: '45 Years of Trust',
-    text: 'Since 1979, we\'ve outlasted competitors by doing right by our customers. Ask around \u2014 our reputation speaks for itself.',
+    text: "Since 1979, we've outlasted competitors by doing right by our customers. Ask around — our reputation speaks for itself.",
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="relative py-20 sm:py-24 lg:py-32 bg-gray-50">
+    <section className="relative py-20 sm:py-28 lg:py-32 bg-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <ScrollReveal>
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-full mb-4 shadow-sm">
-              <BadgeCheck size={14} className="text-navy-900" />
-              <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Why Preweld</span>
+          <div className="text-center mb-14 sm:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full mb-5 shadow-sm">
+              <BadgeCheck size={15} className="text-navy-900" />
+              <span className="text-xs font-bold text-navy-900 uppercase tracking-widest">Why Preweld</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight mb-3 sm:mb-4">
+            <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-4">
               The Difference Is{' '}
               <span className="gradient-text">In the Details</span>
             </h2>
-            <p className="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
               Any supplier can drop off a box. We show up with expertise, stock, and a commitment to keeping your operation running.
             </p>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {reasons.map((r, i) => (
-            <ScrollReveal key={r.title} delay={i + 1}>
-              <div className="group bg-white border border-gray-200 rounded-2xl p-6 sm:p-7 hover:border-navy-200 hover:shadow-xl transition-all duration-300 h-full">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 bg-navy-50 rounded-xl flex items-center justify-center mb-4 sm:mb-5 group-hover:bg-navy-900 transition-colors duration-300">
-                  <r.icon size={20} className="text-navy-900 group-hover:text-white transition-colors duration-300 sm:size-[22px]" />
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" staggerDelay={0.08}>
+          {reasons.map((r) => (
+            <StaggerItem key={r.title}>
+              <div className="group bg-white border border-gray-200 rounded-2xl p-6 sm:p-7 hover:border-navy-300 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="w-12 h-12 bg-navy-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-navy-900 group-hover:scale-110 transition-all duration-300">
+                  <r.icon size={22} className="text-navy-900 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="font-display text-base sm:text-lg font-bold text-navy-950 mb-1.5 sm:mb-2">
+                <h3 className="font-display text-lg font-bold text-navy-950 mb-2 group-hover:text-navy-700 transition-colors">
                   {r.title}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {r.text}
-                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">{r.text}</p>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   )

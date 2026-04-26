@@ -12,6 +12,7 @@ import Brands from './components/Brands'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import MobileCallBar from './components/MobileCallBar'
+import BackToTop from './components/BackToTop'
 import SectionDivider from './components/SectionDivider'
 
 export default function App() {
@@ -20,36 +21,27 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-
         <Specials />
         <SectionDivider variant="white-to-gray" />
-
         <ProductCategories />
         <SectionDivider variant="gray-to-white" />
-
         <NewestProducts />
         <SectionDivider variant="white-to-gray" />
-
         <HowItWorks />
         <SectionDivider variant="gray-to-white" />
-
         <WhyChoose />
         <SectionDivider variant="white-to-gray" />
-
         <Services />
-
         <About />
         <SectionDivider variant="white-to-navy" />
-
         <Testimonials />
         <SectionDivider variant="navy-to-white" />
-
         <Brands />
-
         <Contact />
       </main>
       <Footer />
       <MobileCallBar />
+      <BackToTop />
     </div>
   )
 }
