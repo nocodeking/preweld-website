@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   Phone, Mail, MapPin, Clock, Send, MessageSquare, ArrowRight
 } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
 
 const branches = [
   {
@@ -72,24 +73,27 @@ export default function Contact() {
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy-100 rounded-full mb-4">
-            <MessageSquare size={14} className="text-navy-900" />
-            <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Get In Touch</span>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy-100 rounded-full mb-4">
+              <MessageSquare size={14} className="text-navy-900" />
+              <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Get In Touch</span>
+            </div>
+            <h2 className="font-display text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight">
+              Let's Talk{' '}
+              <span className="gradient-text">Welding</span>
+            </h2>
+            <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
+              Whether you need a quote, technical advice, or just want to check stock — 
+              our friendly team is ready to help.
+            </p>
           </div>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight">
-            Let's Talk{' '}
-            <span className="gradient-text">Welding</span>
-          </h2>
-          <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
-            Whether you need a quote, technical advice, or just want to check stock — 
-            our friendly team is ready to help.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12">
           {/* Left - Contact info + branches */}
-          <div className="space-y-8">
+          <ScrollReveal delay={1}>
+            <div className="space-y-8">
             {/* Quick contact */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 lg:p-8">
               <h3 className="font-display text-xl font-bold text-navy-950 mb-6">
@@ -216,10 +220,12 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollReveal>
 
           {/* Right - Contact form + Map */}
-          <div className="space-y-8">
+          <ScrollReveal delay={2}>
+            <div className="space-y-8">
             {/* Map */}
             <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
               <div className="aspect-[16/9] w-full">
@@ -326,7 +332,8 @@ export default function Contact() {
                 </p>
               </form>
             </div>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

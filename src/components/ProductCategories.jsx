@@ -3,6 +3,7 @@ import {
   Zap, Flame, Scissors, ShieldCheck, Wrench, Drill,
   ArrowRight, Package
 } from 'lucide-react'
+import ScrollReveal from './ScrollReveal'
 
 const categories = [
   {
@@ -17,7 +18,7 @@ const categories = [
   {
     icon: Flame,
     name: 'Gases & Cylinders',
-    description: 'Oxygen, argon, acetylene, CO₂, nitrogen, and mixed gases.',
+    description: 'Oxygen, argon, acetylene, CO\u2082, nitrogen, and mixed gases.',
     count: '45+',
     tags: ['Oxygen', 'Argon', 'Acetylene'],
     color: 'bg-sky-500',
@@ -35,7 +36,7 @@ const categories = [
   {
     icon: ShieldCheck,
     name: 'Safety & PPE',
-    description: 'Complete PPE range — helmets, gloves, boots, respirators.',
+    description: 'Complete PPE range \u2014 helmets, gloves, boots, respirators.',
     count: '200+',
     tags: ['Helmets', 'Gloves', 'Boots'],
     color: 'bg-emerald-600',
@@ -65,76 +66,79 @@ export default function ProductCategories() {
   const [hoveredIdx, setHoveredIdx] = useState(null)
 
   return (
-    <section id="products" className="relative py-24 lg:py-32 bg-gray-50">
+    <section id="products" className="relative py-20 sm:py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-full mb-4 shadow-sm">
-              <Package size={14} className="text-navy-900" />
-              <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Product Range</span>
+        <ScrollReveal>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-12 sm:mb-16">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-full mb-4 shadow-sm">
+                <Package size={14} className="text-navy-900" />
+                <span className="text-xs font-semibold text-navy-900 uppercase tracking-wider">Product Range</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight">
+                Everything You Need,{' '}
+                <span className="gradient-text">In Stock</span>
+              </h2>
+              <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
+                From welding machines to safety gear \u2014 we stock Gauteng's most comprehensive range.
+              </p>
             </div>
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight">
-              Everything You Need,{' '}
-              <span className="gradient-text">In Stock</span>
-            </h2>
-            <p className="mt-4 text-gray-600 text-lg max-w-xl">
-              From welding machines to safety gear — we stock Gauteng's most comprehensive range.
-            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 text-navy-900 hover:text-sky-500 font-semibold transition-colors group"
+            >
+              View Full Catalogue
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 text-navy-900 hover:text-sky-500 font-semibold transition-colors group"
-          >
-            View Full Catalogue
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-        </div>
+        </ScrollReveal>
 
         {/* Category grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {categories.map((cat, i) => (
-            <div
-              key={cat.name}
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              className="group relative card-shine bg-white border border-gray-200 rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-navy-200 cursor-pointer"
-            >
-              {/* Icon */}
-              <div className={`w-12 h-12 ${cat.light} rounded-xl flex items-center justify-center mb-5`}>
-                <cat.icon size={22} className="text-navy-900" />
-              </div>
+            <ScrollReveal key={cat.name} delay={i + 1}>
+              <div
+                onMouseEnter={() => setHoveredIdx(i)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                className="group relative card-shine bg-white border border-gray-200 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-navy-200 cursor-pointer h-full"
+              >
+                {/* Icon */}
+                <div className={`w-11 h-11 sm:w-12 sm:h-12 ${cat.light} rounded-xl flex items-center justify-center mb-4 sm:mb-5`}>
+                  <cat.icon size={20} className="text-navy-900 sm:size-[22px]" />
+                </div>
 
-              {/* Content */}
-              <h3 className="font-display text-xl font-bold text-navy-950 mb-2 group-hover:text-navy-700 transition-colors">
-                {cat.name}
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                {cat.description}
-              </p>
+                {/* Content */}
+                <h3 className="font-display text-lg sm:text-xl font-bold text-navy-950 mb-1.5 sm:mb-2 group-hover:text-navy-700 transition-colors">
+                  {cat.name}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4 sm:mb-5">
+                  {cat.description}
+                </p>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-5">
-                {cat.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-1 bg-gray-100 rounded-md text-[11px] font-semibold text-gray-600 uppercase tracking-wide"
-                  >
-                    {tag}
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-5">
+                  {cat.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 bg-gray-100 rounded-md text-[10px] sm:text-[11px] font-semibold text-gray-600 uppercase tracking-wide"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Bottom row */}
+                <div className="flex items-center justify-between pt-4 sm:pt-5 border-t border-gray-100">
+                  <span className="text-sm text-gray-500">
+                    <span className="text-navy-900 font-bold">{cat.count}</span> products
                   </span>
-                ))}
+                  <span className="flex items-center gap-1 text-sm text-navy-900 opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
+                    Browse <ArrowRight size={14} />
+                  </span>
+                </div>
               </div>
-
-              {/* Bottom row */}
-              <div className="flex items-center justify-between pt-5 border-t border-gray-100">
-                <span className="text-sm text-gray-500">
-                  <span className="text-navy-900 font-bold">{cat.count}</span> products
-                </span>
-                <span className="flex items-center gap-1 text-sm text-navy-900 opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
-                  Browse <ArrowRight size={14} />
-                </span>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
