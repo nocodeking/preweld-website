@@ -1,0 +1,138 @@
+/* Custom font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ========================================
+   PREWELD.CO.ZA — Light Corporate Design System
+   Brand: Navy Blue #040964 on White
+   ======================================== */
+
+@theme {
+  /* Brand Navy */
+  --color-navy-950: #02043a;
+  --color-navy-900: #040964;
+  --color-navy-800: #060c7a;
+  --color-navy-700: #0a1098;
+  --color-navy-600: #0e14b0;
+  --color-navy-500: #1218c8;
+  --color-navy-400: #3a3ed8;
+  --color-navy-300: #6a6ee8;
+  --color-navy-200: #9a9ef0;
+  --color-navy-100: #cacaf8;
+  --color-navy-50: #eaeafc;
+
+  /* Supporting Blues */
+  --color-sky-500: #2563eb;
+  --color-sky-400: #3b82f6;
+  --color-sky-300: #60a5fa;
+
+  /* Neutrals */
+  --color-gray-950: #0a0a1a;
+  --color-gray-900: #111128;
+  --color-gray-800: #1a1a3a;
+  --color-gray-700: #2a2a4a;
+  --color-gray-600: #4a4a6a;
+  --color-gray-500: #6a6a8a;
+  --color-gray-400: #8a8aa8;
+  --color-gray-300: #b0b0c8;
+  --color-gray-200: #d8d8e8;
+  --color-gray-100: #e8e8f0;
+  --color-gray-50: #f4f4f8;
+
+  /* Success / CTA accent */
+  --color-accent-500: #040964;
+  --color-accent-400: #060c7a;
+
+  /* Fonts */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #ffffff;
+  color: #1a1a3a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f4f4f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d8e8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0c8;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #040964, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(4, 9, 100, 0.15);
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(4, 9, 100, 0.03), transparent);
+  transition: left 0.6s ease;
+}
+.card-shine:hover::before {
+  left: 100%;
+}
+
+.accent-line {
+  height: 3px;
+  width: 48px;
+  background: linear-gradient(90deg, #040964, #2563eb);
+  border-radius: 2px;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
