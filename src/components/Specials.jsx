@@ -49,7 +49,10 @@ export default function Specials() {
           </h2>
           <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
             Promotions change monthly. Grab these deals before they're gone — 
-            call us at <span className="text-navy-900 font-semibold">012 327 2694</span> to confirm availability.
+            <a href="tel:0123272694" className="text-navy-900 font-semibold hover:text-sky-500 transition-colors underline underline-offset-2">
+              call us at 012 327 2694
+            </a>{' '}
+            to confirm availability.
           </p>
         </div>
 

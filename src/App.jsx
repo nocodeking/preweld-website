@@ -1,8 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import Specials from './components/Specials'
 import ProductCategories from './components/ProductCategories'
 import NewestProducts from './components/NewestProducts'
-import Specials from './components/Specials'
 import HowItWorks from './components/HowItWorks'
 import WhyChoose from './components/WhyChoose'
 import Services from './components/Services'
@@ -21,19 +21,20 @@ export default function App() {
       <main>
         <Hero />
 
-        <ProductCategories />
+        <Specials />
         <SectionDivider variant="white-to-gray" />
+
+        <ProductCategories />
+        <SectionDivider variant="gray-to-white" />
 
         <NewestProducts />
-        <SectionDivider variant="gray-to-white" />
-
-        <Specials />
-
-        <HowItWorks />
         <SectionDivider variant="white-to-gray" />
 
-        <WhyChoose />
+        <HowItWorks />
         <SectionDivider variant="gray-to-white" />
+
+        <WhyChoose />
+        <SectionDivider variant="white-to-gray" />
 
         <Services />
 

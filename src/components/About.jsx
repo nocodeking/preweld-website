@@ -2,7 +2,7 @@ import { MapPin, Users, Award, Building2, TrendingUp, Heart } from 'lucide-react
 
 const stats = [
   { value: '45+', label: 'Years in Business', icon: Award },
-  { value: '5', label: 'Gauteng Branches', icon: MapPin },
+  { value: '4', label: 'Gauteng Branches', icon: MapPin },
   { value: '50+', label: 'Expert Staff', icon: Users },
   { value: '10K+', label: 'Products Stocked', icon: Building2 },
 ]
@@ -87,7 +87,7 @@ export default function About() {
             <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
               <p>
                 Since 1979, Preweld has been the go-to source for gas, cutting, and welding 
-                supplies in Pretoria and the greater Gauteng region. Five strategically positioned 
+                supplies in Pretoria and the greater Gauteng region. Four strategically positioned 
                 branches serving the province's industrial and commercial hubs.
               </p>
               <p>
