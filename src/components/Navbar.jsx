@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Phone } from 'lucide-react'
+import { Menu, X, Phone, Truck, Clock } from 'lucide-react'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
@@ -21,6 +21,7 @@ export default function Navbar() {
   }, [])
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -114,5 +115,18 @@ export default function Navbar() {
         </div>
       </div>
     </header>
+
+    {/* Delivery banner - sticky below nav */}
+    <div className="fixed top-[72px] md:top-[104px] left-0 right-0 z-40 bg-emerald-600 text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-2 flex items-center justify-center gap-2 text-sm">
+        <Truck size={16} className="flex-shrink-0" />
+        <span className="font-semibold">Same-Day Delivery</span>
+        <span className="hidden sm:inline text-emerald-100">
+          — Order before 2pm, get it today. Gauteng-wide.
+        </span>
+        <Clock size={14} className="flex-shrink-0 sm:hidden" />
+      </div>
+    </div>
+    </>
   )
 }

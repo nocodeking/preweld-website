@@ -1,14 +1,14 @@
 import { ArrowRight, Phone, Shield, Truck, Clock } from 'lucide-react'
 
 const trustBadges = [
+  { icon: Clock, label: 'Same-Day Delivery', sub: 'Order Before 2pm' },
+  { icon: Truck, label: 'Gauteng-Wide', sub: 'Direct to Site' },
   { icon: Shield, label: 'Trusted Since 1979', sub: '45+ Years' },
-  { icon: Truck, label: 'Gauteng Delivery', sub: 'Same Day Available' },
-  { icon: Clock, label: 'Expert Support', sub: 'Trained Staff' },
 ]
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-[120px] md:pt-[152px]">
       {/* Background image with overlay */}
       <div className="absolute inset-0">
         <img
@@ -21,13 +21,13 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
         <div className="max-w-2xl">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
-            <span className="w-2 h-2 bg-sky-400 rounded-full animate-pulse" />
-            <span className="text-sky-300 text-sm font-medium">
-              South Africa's Premier Welding Supplier
-            </span>
-          </div>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full mb-6">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="text-emerald-300 text-sm font-medium">
+                Order Before 2pm — Same-Day Delivery Across Gauteng
+              </span>
+            </div>
 
           {/* Headline */}
           <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
