@@ -27,6 +27,12 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="relative py-24 lg:py-32 bg-navy-950 overflow-hidden">
+      {/* Floating ambient particles */}
+      <div className="absolute top-10 left-[10%] w-2 h-2 bg-sky-400/30 rounded-full animate-bounce" style={{ animationDuration: '3s' }} />
+      <div className="absolute top-20 right-[20%] w-1.5 h-1.5 bg-emerald-400/20 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+      <div className="absolute bottom-20 left-[30%] w-2 h-2 bg-white/10 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '0.5s' }} />
+      <div className="absolute top-1/2 right-[10%] w-1 h-1 bg-sky-300/40 rounded-full animate-bounce" style={{ animationDuration: '3.5s', animationDelay: '2s' }} />
+
       {/* Subtle pattern */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{

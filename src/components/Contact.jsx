@@ -47,7 +47,11 @@ export default function Contact() {
 
   return (
     <section id="contact" className="relative py-24 lg:py-32 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Decorative blurred shapes */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-navy-50 rounded-full blur-3xl opacity-50" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-50 rounded-full blur-3xl opacity-50" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy-100 rounded-full mb-4">

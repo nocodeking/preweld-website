@@ -39,7 +39,11 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="relative py-24 lg:py-32 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      {/* Decorative dots */}
+      <div className="absolute top-20 right-20 w-40 h-40 bg-navy-900/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-32 h-32 bg-sky-400/5 rounded-full blur-2xl" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16 items-start">
           {/* Left column - header */}
           <div className="lg:sticky lg:top-32">

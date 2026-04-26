@@ -46,8 +46,35 @@ export default function About() {
         </div>
 
         {/* About content */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - text */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left - image + overlay */}
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/product-welder.jpg"
+                alt="Welding in action"
+                className="w-full h-[420px] lg:h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                      <Award size={20} className="text-emerald-700" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold text-navy-950">45+ Years</div>
+                      <div className="text-xs text-gray-500">Serving Gauteng since 1979</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Decorative accent */}
+            <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-navy-100 rounded-2xl" />
+          </div>
+
+          {/* Right - text */}
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-navy-50 border border-navy-100 rounded-full mb-4">
               <Award size={14} className="text-navy-900" />
@@ -57,40 +84,36 @@ export default function About() {
               Trusted by Gauteng's{' '}
               <span className="gradient-text">Welding Industry</span>
             </h2>
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <div className="space-y-4 text-gray-600 leading-relaxed mb-8">
               <p>
                 Since 1979, Preweld has been the go-to source for gas, cutting, and welding 
-                supplies in Pretoria and the greater Gauteng region. What started as a single 
-                branch has grown into a trusted network of five locations, strategically 
-                positioned to serve the province's industrial and commercial hubs.
+                supplies in Pretoria and the greater Gauteng region. Five strategically positioned 
+                branches serving the province's industrial and commercial hubs.
               </p>
               <p>
-                We supply everything from welding machines and consumables to specialty gases 
-                and a full range of Personal Protective Equipment \u2014 overalls, dust masks, 
-                safety specs, respirators, gloves, safety shoes, and boots. You're covered 
-                from top to toe.
+                From welding machines and consumables to specialty gases and full PPE — overalls, 
+                dust masks, safety specs, respirators, gloves, safety shoes, and boots. 
+                You're covered from top to toe.
               </p>
             </div>
-          </div>
 
-          {/* Right - values */}
-          <div className="space-y-5">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="flex gap-5 p-6 bg-gray-50 border border-gray-100 rounded-2xl hover:border-navy-200 transition-colors"
-              >
-                <div className="w-12 h-12 bg-navy-50 border border-navy-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <value.icon size={20} className="text-navy-900" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-navy-950 mb-1">
+            {/* Values as horizontal cards instead of stacked */}
+            <div className="grid sm:grid-cols-3 gap-3">
+              {values.map((value) => (
+                <div
+                  key={value.title}
+                  className="p-4 bg-gray-50 border border-gray-100 rounded-xl hover:border-navy-200 transition-colors text-center"
+                >
+                  <div className="w-10 h-10 bg-navy-50 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <value.icon size={18} className="text-navy-900" />
+                  </div>
+                  <h3 className="font-display text-sm font-bold text-navy-950 mb-1">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{value.text}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{value.text}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

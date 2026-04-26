@@ -1,4 +1,5 @@
 import { ArrowRight, Phone, Shield, Truck, Clock } from 'lucide-react'
+import WeldingSparks from './WeldingSparks'
 
 const trustBadges = [
   { icon: Clock, label: 'Same-Day Delivery', sub: 'Order Before 2pm' },
@@ -17,6 +18,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-950/80 to-navy-950/40" />
+        <WeldingSparks />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
