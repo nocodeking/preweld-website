@@ -37,9 +37,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg text-white/80 max-w-lg leading-relaxed mb-8">
-            The trusted source for industrial welding equipment, specialty gases, 
-            and PPE since 1979. Serving Gauteng's fabrication, construction, and 
-            manufacturing industries.
+            Same-day delivery across Gauteng on welding machines, gas cylinders, 
+            PPE, consumables and cutting equipment. Order before 2pm, get it today. 
+            Trusted by workshops since 1979.
           </p>
 
           {/* CTAs */}
