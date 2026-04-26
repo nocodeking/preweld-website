@@ -87,7 +87,7 @@ export default function Specials() {
             </div>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-4">
               Deals You Don't Want{' '}
-              <span className="gradient-text">to Miss</span>
+              <span className="text-navy-900">to Miss</span>
             </h2>
             <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
               Promotions change monthly. Grab these deals before they're gone —{' '}
@@ -102,7 +102,7 @@ export default function Specials() {
         {/* Carousel */}
         <div className="relative max-w-5xl mx-auto">
           {/* Cards */}
-          <div className="relative overflow-hidden rounded-3xl">
+          <div className="relative overflow-hidden rounded-2xl">
             <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={current}
@@ -112,7 +112,7 @@ export default function Specials() {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="grid md:grid-cols-2 bg-gray-50 border border-gray-100 rounded-3xl overflow-hidden shadow-xl shadow-gray-200/50"
+                className="grid md:grid-cols-2 bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden shadow-xl shadow-gray-200/50"
               >
                 {/* Image side */}
                 <div className="relative h-64 sm:h-80 md:h-auto overflow-hidden">

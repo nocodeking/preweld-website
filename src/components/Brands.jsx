@@ -45,10 +45,10 @@ export default function Brands() {
   return (
     <section className="relative py-20 sm:py-28 lg:py-32 bg-gray-50 overflow-hidden">
       {/* Subtle background */}
-      <div className="absolute inset-0 opacity-[0.020]"
+      <div className="absolute inset-0 opacity-[0.015]"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, #040964 1px, transparent 0)`,
-          backgroundSize: '32px 32px',
+          backgroundSize: '48px 48px',
         }}
       />
 
@@ -65,7 +65,7 @@ export default function Brands() {
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-4">
               We Only Stock The{' '}
               <span className="relative inline-block">
-                <span className="gradient-text">Best</span>
+                <span className="text-navy-900">Best</span>
                 <motion.span
                   className="absolute -bottom-1 left-0 right-0 h-[3px] bg-gradient-to-r from-navy-900 to-sky-500 rounded-full"
                   initial={{ scaleX: 0 }}
@@ -99,15 +99,11 @@ export default function Brands() {
                   {group.brands.map((brand) => (
                     <motion.div
                       key={brand.name}
-                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileHover={{ scale: 1.02, y: -2 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`relative bg-gradient-to-br ${brand.color} rounded-xl sm:rounded-2xl p-5 sm:p-7 flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow cursor-default overflow-hidden group min-h-[80px] sm:min-h-[100px]`}
+                      className="relative bg-white border-2 border-gray-200 hover:border-navy-900 rounded-xl sm:rounded-2xl p-5 sm:p-7 flex items-center justify-center shadow-sm hover:shadow-lg transition-all duration-300 cursor-default overflow-hidden group min-h-[80px] sm:min-h-[100px]"
                     >
-                      {/* Shine overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      {/* Corner accent */}
-                      <div className="absolute top-0 right-0 w-12 sm:w-16 h-12 sm:h-16 bg-white/5 rounded-bl-2xl" />
-                      <span className={`font-display text-lg sm:text-2xl lg:text-3xl font-black ${brand.text} relative z-10 tracking-tight`}>
+                      <span className="font-display text-lg sm:text-2xl lg:text-3xl font-black text-navy-900 relative z-10 tracking-tight group-hover:text-navy-950 transition-colors">
                         {brand.name}
                       </span>
                     </motion.div>

@@ -46,7 +46,7 @@ export default function WhyChoose() {
             </div>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-4">
               The Difference Is{' '}
-              <span className="gradient-text">In the Details</span>
+              <span className="text-navy-900">In the Details</span>
             </h2>
             <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
               Any supplier can drop off a box. We show up with expertise, stock, and a commitment to keeping your operation running.

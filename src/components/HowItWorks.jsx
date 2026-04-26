@@ -36,7 +36,7 @@ export default function HowItWorks() {
             </div>
             <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-4">
               Welding Supplies,{' '}
-              <span className="gradient-text">Simplified</span>
+              <span className="text-navy-900">Simplified</span>
             </h2>
             <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
               Three steps from phone call to delivery. No e-commerce cart. No waiting.{' '}

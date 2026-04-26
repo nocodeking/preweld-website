@@ -30,10 +30,10 @@ export default function Testimonials() {
     <section className="relative py-20 sm:py-28 lg:py-32 bg-navy-950 overflow-hidden">
       {/* Subtle pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-          backgroundSize: '40px 40px',
+          backgroundSize: '56px 56px',
         }}
       />
 

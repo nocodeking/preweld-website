@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Phone, Shield, Truck, Clock, Sparkles } from 'lucide-react'
+import { ArrowRight, Phone, Shield, Truck, Clock } from 'lucide-react'
 import ScrollReveal, { StaggerContainer, StaggerItem } from './ScrollReveal'
 
 const trustBadges = [

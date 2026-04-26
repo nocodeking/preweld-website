@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  Phone, Mail, MapPin, Clock, Send, MessageSquare, ArrowRight
+  Phone, Mail, MapPin, Clock, Send, MessageSquare, ArrowRight, CheckCircle
 } from 'lucide-react'
 import ScrollReveal from './ScrollReveal'
 
@@ -57,13 +57,18 @@ export default function Contact() {
   const [formState, setFormState] = useState({
     name: '', company: '', email: '', phone: '', message: '',
   })
+  const [submitted, setSubmitted] = useState(false)
 
-  const branch = branches[activeBranch]
+  const handleChange = (field) => (e) => setFormState(prev => ({ ...prev, [field]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    alert('Thank you! We\'ll be in touch shortly.')
+    setFormState({ name: '', company: '', email: '', phone: '', message: '' })
+    setSubmitted(true)
+    setTimeout(() => setSubmitted(false), 5000)
   }
+
+  const branch = branches[activeBranch]
 
   return (
     <section id="contact" className="relative py-24 lg:py-32 bg-white overflow-hidden">
@@ -81,7 +86,7 @@ export default function Contact() {
             </div>
             <h2 className="font-display text-4xl lg:text-5xl font-bold text-navy-950 tracking-tight">
               Let's Talk{' '}
-              <span className="gradient-text">Welding</span>
+              <span className="text-navy-900">Welding</span>
             </h2>
             <p className="mt-4 text-gray-600 text-lg max-w-2xl mx-auto">
               Whether you need a quote, technical advice, or just want to check stock — 
@@ -290,6 +295,8 @@ export default function Contact() {
                     <input
                       type="email"
                       required
+                      value={formState.email}
+                      onChange={handleChange('email')}
                       className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-950 placeholder:text-gray-400 focus:outline-none focus:border-navy-300 focus:ring-2 focus:ring-navy-100 transition-colors"
                       placeholder="john@company.co.za"
                     />
@@ -301,6 +308,8 @@ export default function Contact() {
                     <input
                       type="tel"
                       required
+                      value={formState.phone}
+                      onChange={handleChange('phone')}
                       className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-950 placeholder:text-gray-400 focus:outline-none focus:border-navy-300 focus:ring-2 focus:ring-navy-100 transition-colors"
                       placeholder="082 123 4567"
                     />
@@ -313,11 +322,21 @@ export default function Contact() {
                   </label>
                   <textarea
                     rows={4}
+                    value={formState.message}
+                    onChange={handleChange('message')}
                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-navy-950 placeholder:text-gray-400 focus:outline-none focus:border-navy-300 focus:ring-2 focus:ring-navy-100 transition-colors resize-none"
                     placeholder="Tell us about your requirements — product types, quantities, or any questions..."
                   />
                 </div>
 
+                {submitted ? (
+                  <div className="text-center py-8">
+                    <CheckCircle size={48} className="text-emerald-500 mx-auto mb-4" />
+                    <h4 className="font-display text-xl font-bold text-navy-950 mb-2">Enquiry Sent!</h4>
+                    <p className="text-sm text-gray-500">We'll get back to you within the hour during business hours.</p>
+                  </div>
+                ) : (
+                  <>
                 <button
                   type="submit"
                   className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-navy-900 hover:bg-navy-800 text-white font-semibold rounded-xl transition-colors shadow-lg shadow-navy-900/15 group"
@@ -330,6 +349,8 @@ export default function Contact() {
                 <p className="text-xs text-gray-400 text-center">
                   We typically respond within 1 hour during business hours.
                 </p>
+                </>
+                )}
               </form>
             </div>
             </div>

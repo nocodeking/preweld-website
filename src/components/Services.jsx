@@ -44,7 +44,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-20 sm:py-28 lg:py-32 bg-gray-50 overflow-hidden">
+    <section id="services" className="relative py-20 sm:py-28 lg:py-32 bg-white border-t border-b border-gray-100 overflow-hidden">
       <div className="absolute top-20 right-20 w-60 h-60 bg-navy-900/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-20 w-48 h-48 bg-sky-400/5 rounded-full blur-3xl" />
 
@@ -59,7 +59,7 @@ export default function Services() {
               </div>
               <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-navy-950 tracking-tight mb-6">
                 More Than Just{' '}
-                <span className="gradient-text">Supply</span>
+                <span className="text-navy-900">Supply</span>
               </h2>
               <p className="text-gray-500 text-base sm:text-lg leading-relaxed mb-8">
                 Preweld is your full-service partner. From gas refills to equipment repairs
@@ -75,18 +75,20 @@ export default function Services() {
             </div>
           </ScrollReveal>
 
-          {/* Right — services grid */}
-          <StaggerContainer className="grid sm:grid-cols-2 gap-4 sm:gap-5" staggerDelay={0.08}>
-            {services.map((service) => (
+          {/* Right — services list */}
+          <StaggerContainer className="space-y-4" staggerDelay={0.06}>
+            {services.map((service, i) => (
               <StaggerItem key={service.title}>
-                <div className="group bg-white border border-gray-200 hover:border-navy-200 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg h-full">
-                  <div className="w-11 h-11 bg-navy-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-navy-900 group-hover:scale-110 transition-all duration-300">
+                <div className="group flex gap-5 items-start bg-white border border-gray-200 hover:border-navy-200 rounded-xl p-5 sm:p-6 transition-all duration-300 hover:-translate-x-1 hover:shadow-md">
+                  <div className="w-11 h-11 bg-navy-50 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-navy-900 group-hover:scale-105 transition-all duration-300">
                     <service.icon size={20} className="text-navy-900 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="font-display text-base sm:text-lg font-bold text-navy-950 mb-2 group-hover:text-navy-700 transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{service.description}</p>
+                  <div className="min-w-0">
+                    <h3 className="font-display text-base sm:text-lg font-bold text-navy-950 mb-1 group-hover:text-navy-700 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">{service.description}</p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}

@@ -39,7 +39,7 @@ export default function About() {
           {/* Image */}
           <ScrollReveal>
             <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/welder-action.jpg"
                   alt="Welding in action"
@@ -68,7 +68,7 @@ export default function About() {
                   </div>
                 </motion.div>
               </div>
-              <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full bg-navy-100 rounded-3xl" />
+              <div className="absolute -z-10 -bottom-3 -right-3 w-full h-full bg-navy-100 rounded-2xl" />
             </div>
           </ScrollReveal>
 
